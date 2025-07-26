@@ -24,8 +24,8 @@ async def handle_help(message: Message):
         "🆘 Помощь — вот что я могу:\n"
         f"• {markdown.hcode("/start")} — начни диалог со мной и узнай, как я работаю\n"
         f"• {markdown.hcode("/weather")} — узнать текущую погоду и я попрошу название города\n"
-        f"• {markdown.hcode("/settings")} — настроить язык, единицы измерения и формат времени\n"
+        # f"• {markdown.hcode("/settings")} — настроить язык, единицы измерения и формат времени\n"
         f"• {markdown.hcode("/cancel")} — отменить текущий ввод или запрос\n"
-        f"• {markdown.hcode("/info")} — узнать информацию обо мне"
+        # f"• {markdown.hcode("/info")} — узнать информацию обо мне"
     )
     await message.answer(text=text)

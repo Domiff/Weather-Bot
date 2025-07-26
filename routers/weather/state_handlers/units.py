@@ -22,5 +22,5 @@ async def handle_metrics(message: Message, state: FSMContext):
 
 @router.message(Weather.units)
 async def handle_wrong_metrics(message: Message):
-    text = "Выберите из предложенных вариантов и напишите текстом"
+    text = "Выберите из предложенных вариантов или напишите текстом"
     await message.answer(text=text)
