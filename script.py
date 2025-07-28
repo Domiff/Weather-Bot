@@ -25,9 +25,9 @@ def get_weather(data: dict):
     weather = data.get("weather", [{}])[0]
     return {
         "Город": data.get("name"),
-        "Температура": main.get("temp"),
-        "Ощущается как": main.get("feels_like"),
-        "Описание": weather.get("description")
+        "Температура": round(main.get("temp")),
+        "Ощущается как": round(main.get("feels_like")),
+        "Описание": weather.get("description").capitalize()
     }
 
 
