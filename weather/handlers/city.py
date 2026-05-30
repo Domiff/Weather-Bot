@@ -1,9 +1,10 @@
-from aiogram import Router, F
-from aiogram.types import Message
+from aiogram import F, Router
 from aiogram.fsm.context import FSMContext
+from aiogram.types import Message
 
-from keyboards.units_keyboard import units_keyboard
-from routers.weather.states import Weather
+from weather.keyboards import units_keyboard
+from weather.states import Weather
+
 
 router = Router(name=__name__)
 
@@ -24,5 +25,4 @@ async def handle_city(message: Message, state: FSMContext):
 
 @router.message(Weather.city)
 async def handle_wrong_city(message: Message):
-    text = "Введите город текстом"
-    await message.answer(text=text)
+    await message.answer("Введите город текстом")
