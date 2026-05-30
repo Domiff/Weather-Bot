@@ -5,7 +5,6 @@ from aiogram.types import Message, ReplyKeyboardRemove
 from core.client import weather_client
 from weather.states import Weather
 
-
 router = Router(name=__name__)
 
 

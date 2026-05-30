@@ -5,7 +5,6 @@ from aiogram.types import Message
 from weather.keyboards import units_keyboard
 from weather.states import Weather
 
-
 router = Router(name=__name__)
 
 

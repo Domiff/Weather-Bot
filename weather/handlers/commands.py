@@ -8,7 +8,6 @@ from aiogram.utils import markdown
 from weather.keyboards import city_keyboard
 from weather.states import Weather
 
-
 router = Router(name=__name__)
 
 
@@ -25,5 +24,7 @@ async def handle_weather(message: Message, state: FSMContext):
 async def handle_cancel(message: Message, state: FSMContext):
     current_state = await state.get_state()
     await state.clear()
-    text = f"Вы закончили {current_state}, что бы начать сначала нажмите {markdown.hcode('/weather')}"
+    text = (
+        f"Вы закончили {current_state}, что бы начать сначала нажмите {markdown.hcode('/weather')}"
+    )
     await message.answer(text=text)

@@ -16,10 +16,12 @@ class WeatherClient:
             "units": unit_param,
             "lang": "ru",
         }
-        async with aiohttp.ClientSession() as session:
-            async with session.get(self._base_url, params=params) as resp:
-                resp.raise_for_status()
-                return await resp.json()
+        async with (
+            aiohttp.ClientSession() as session,
+            session.get(self._base_url, params=params) as resp,
+        ):
+            resp.raise_for_status()
+            return await resp.json()
 
     @staticmethod
     def format(data: dict) -> str:

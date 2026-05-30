@@ -11,7 +11,6 @@ from aiogram.utils import markdown
 from core.config import config
 from weather import router as weather_router
 
-
 bot = Bot(token=config["bot_token"], default=DefaultBotProperties(parse_mode=ParseMode.HTML))
 dp = Dispatcher()
 
