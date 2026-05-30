@@ -1,17 +1,22 @@
-FROM python:3.12-slim
+FROM python:3.12-slim AS builder
 
-ENV POETRY_VERSION=1.8.0 \
-    PYTHONDONTWRITEBYTECODE=1 \
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /bin/
+
+WORKDIR /app
+
+COPY pyproject.toml uv.lock ./
+RUN uv sync --frozen --no-cache --no-dev
+
+FROM python:3.12-slim AS runtime
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1
 
 WORKDIR /app
 
-COPY requirements.txt ./
+COPY --from=builder /app/.venv ./.venv
+COPY . .
 
-RUN pip install --no-cache-dir -r requirements.txt
-
-COPY . ./
-
-EXPOSE 6000
+ENV PATH="/app/.venv/bin:$PATH"
 
 CMD ["python", "main.py"]
