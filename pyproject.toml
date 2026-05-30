@@ -1,0 +1,10 @@
+[project]
+name = "weather-bot"
+version = "0.1.0"
+description = "Telegram weather bot powered by aiogram and OpenWeatherMap"
+requires-python = ">=3.12"
+dependencies = [
+    "aiogram>=3.21.0",
+    "aiohttp>=3.12.0",
+    "python-dotenv>=1.1.1",
+]
